@@ -44,11 +44,16 @@ jobs:
         run: |
           pyinstaller --onefile --name hookverify hookverify_cli/main.py
 
+      - name: Rename artifact
+        run: |
+          mv dist/${{ matrix.artifact_name }} dist/${{ matrix.asset_name }}
+        shell: bash
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.asset_name }}
-          path: dist/${{ matrix.artifact_name }}
+          path: dist/${{ matrix.asset_name }}
 
   release:
     needs: build
