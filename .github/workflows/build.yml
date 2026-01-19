@@ -61,14 +61,15 @@ jobs:
         with:
           path: artifacts
 
+      - name: List artifacts
+        run: find artifacts -type f
+
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
-            artifacts/hookverify-windows-amd64.exe/hookverify.exe
-            artifacts/hookverify-linux-amd64/hookverify
-            artifacts/hookverify-macos-amd64/hookverify
+            artifacts/hookverify-windows-amd64.exe/*
+            artifacts/hookverify-linux-amd64/*
+            artifacts/hookverify-macos-amd64/*
           generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
