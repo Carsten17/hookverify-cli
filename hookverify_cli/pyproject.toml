@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hookverify-cli"
+version = "0.1.0"
+description = "HookVerify CLI - Receive webhooks locally during development"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "HookVerify", email = "support@hookverify.com"}
+]
+keywords = ["webhooks", "cli", "development", "hookverify"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "httpx>=0.24.0",
+    "websockets>=11.0",
+]
+
+[project.scripts]
+hookverify = "hookverify_cli.main:main"
+
+[project.urls]
+Homepage = "https://hookverify.com"
+Documentation = "https://hookverify.com/docs#cli"
+Repository = "https://github.com/Carsten17/hookverify-cli"
+
+[tool.setuptools.packages.find]
+include = ["hookverify_cli*"]
